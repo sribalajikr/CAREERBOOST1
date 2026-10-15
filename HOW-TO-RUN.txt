@@ -1,0 +1,97 @@
+# START.bat — AI Career Assistant
+
+Double-click **START.bat** → the app opens automatically in **Chrome** at
+**http://localhost:5173**
+
+Demo login: `demo@career.ai` / `demo1234`
+
+## What START.bat does
+
+1. Checks if the website is already running → if yes, just opens Chrome again.
+2. Starts the **backend** (FastAPI, port 8000) in a minimized window.
+3. Starts the **frontend** (Vite, port 5173) in a minimized window.
+4. Waits until both are healthy, then opens the app in Chrome
+   (falls back to your default browser if Chrome is not installed).
+
+## Stop the app
+
+Double-click **STOP.bat** → it closes both servers (whatever is listening
+on ports 5173 and 8000).
+
+## First time only (already done on this machine)
+
+- Backend: `cd backend` → `python -m venv venv` → `venv\Scripts\pip install -r requirements.txt`
+- Frontend: `cd frontend` → `npm install` (START.bat runs this automatically if missing)
+
+## How to update
+
+**1. You changed the app's code (most common)**
+
+- Frontend (files in `frontend/src`): nothing to do. While `npm run dev` is
+  running, Vite hot-reloads the page — just refresh the browser.
+- Backend (files in `backend/app`): restart it. Double-click **STOP.bat**, then
+  **START.bat**. Python does not auto-reload here.
+
+**2. A new version of the project was given to you (zip/folder)**
+
+1. Stop the app (**STOP.bat**).
+2. Copy the new `backend/app`, `frontend/src`, `backend/requirements.txt` and
+   `frontend/package.json` over the old ones.
+   - **Never delete `backend/career_assistant.db`** — that holds all accounts
+     and progress. Keep the old folder as backup until the new one runs.
+3. `cd backend` → `venv\Scripts\pip install -r requirements.txt`
+   (only if requirements.txt changed).
+4. `cd frontend` → `npm install` (only if package.json changed).
+5. Start again with **START.bat**.
+
+**3. Updating the tools (rare)**
+
+```
+cd backend
+venv\Scripts\python -m pip install --upgrade -r requirements.txt
+
+cd ..\frontend
+npm update
+```
+
+**Tip:** the project is not a git repository. Run `git init` + `git add .` +
+`git commit -m "first version"` once, and from then on you can roll back any
+bad update with one command.
+
+## How to check the database
+
+All data (accounts, resumes, scores, interviews) lives in one file:
+`backend\career_assistant.db`
+
+**Easiest way — built-in viewer.** Open Command Prompt in the `backend`
+folder and run:
+
+```
+venv\Scripts\python check_db.py              :: overview of every table
+venv\Scripts\python check_db.py users        :: just the accounts
+venv\Scripts\python check_db.py resumes      :: just the resumes + scores
+venv\Scripts\python check_db.py plan_tasks   :: any other table name
+```
+
+**Graphical way — DB Browser for SQLite (free download):**
+1. Install "DB Browser for SQLite" from sqlitebrowser.org
+2. Open file → choose `backend\career_assistant.db`
+3. Browse the tables, or edit rows by hand (close nothing else first).
+
+**Important**
+- Back up first: copy `career_assistant.db` somewhere safe (or see
+  `backend\backups\`).
+- Don't edit the DB while the app is running, and never delete this file —
+  it contains every account.
+
+## Manual commands (not needed with the .bat files)
+
+```
+:: Backend
+cd backend
+venv\Scripts\python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+
+:: Frontend (second terminal)
+cd frontend
+npm run dev
+```

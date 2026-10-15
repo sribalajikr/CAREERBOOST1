@@ -1,0 +1,27 @@
+# --- Python / backend ---
+backend/venv/
+__pycache__/
+*.py[cod]
+
+# --- Secrets & local config (never commit) ---
+backend/.env
+
+# --- Database files (user data, never commit) ---
+backend/*.db
+backend/*.db-journal
+backend/backups/
+
+# --- Vosk speech model (40MB+, downloaded separately) ---
+backend/models/
+
+# --- Node / frontend ---
+node_modules/
+frontend/dist/
+
+# --- Test artifacts ---
+backend/stt_test.wav
+backend/stt_test.webm
+
+# --- IDE / tooling ---
+.vscode/
+.freebuff/

@@ -1,0 +1,66 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 1415 >>
+stream
+BT /F1 11 Tf 14 TL 50 780 Td
+(RAHUL SHARMA) Tj T*
+(Email: rahul.sharma@example.com | Phone: +91 98765 43210) Tj T*
+(LinkedIn: linkedin.com/in/rahulsharma | GitHub: github.com/rahulsharma) Tj T*
+() Tj T*
+(OBJECTIVE) Tj T*
+(Motivated computer science student seeking a software developer internship.) Tj T*
+() Tj T*
+(EDUCATION) Tj T*
+(B.Tech Computer Science, Sunrise Institute of Technology \(2023-2027\)) Tj T*
+(CGPA: 8.4/10) Tj T*
+() Tj T*
+(SKILLS) Tj T*
+(Programming: Python, Java, C++, JavaScript) Tj T*
+(Web: HTML, CSS, React, Node.js) Tj T*
+(Databases: SQL, MySQL, MongoDB) Tj T*
+(Tools: Git, GitHub, Docker, Linux, REST API) Tj T*
+() Tj T*
+(PROJECTS) Tj T*
+(E-Commerce Website - Built a full stack web app with React and Node.js) Tj T*
+(- Designed REST APIs with JWT authentication, reduced page load by 35%) Tj T*
+(- Implemented cart and payment flow used by 50+ test users) Tj T*
+(Student Attendance System - Python desktop application with MySQL) Tj T*
+(- Automated attendance tracking, saving 5 hours per week) Tj T*
+() Tj T*
+(CERTIFICATIONS) Tj T*
+(Google Cloud Fundamentals, AWS Cloud Practitioner \(in progress\)) Tj T*
+() Tj T*
+(ACHIEVEMENTS) Tj T*
+(Winner, college hackathon 2025. Solved 200+ DSA problems on LeetCode.) Tj T*
+() Tj T*
+(EXPERIENCE) Tj T*
+(Web Development Intern, TechStart Solutions \(Jun-Jul 2025\)) Tj T*
+(- Developed reusable UI components, improved delivery speed by 20%) Tj T*
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000001708 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+1778
+%%EOF
