@@ -10,7 +10,7 @@ function under `/api`, wired by [vercel.json](vercel.json) and [api/index.py](ap
 | ASGI entrypoint | `api/index.py` | Imports the FastAPI app so Vercel serves it as a Python function |
 | Routing | `vercel.json` | `/api/*` → FastAPI function; everything else → React SPA |
 | Build | `vercel.json` | Builds `frontend/`, serves `frontend/dist` |
-| Python deps | `requirements.txt` | Root file pointing Vercel at `backend/requirements.txt` |
+| Python deps | `requirements.txt` | Complete flat dependency list at the root (mirrors `backend/requirements.txt` — keep both in sync) |
 | SQLite on serverless | `backend/app/core/database.py` | Falls back to `/tmp` (read-only FS on Vercel) |
 | Upload filter | `.vercelignore` | Skips venv, Vosk model, DB files, node_modules |
 
