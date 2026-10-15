@@ -1,0 +1,10 @@
+# Not needed in the serverless bundle
+backend/venv/
+backend/models/
+backend/backups/
+backend/*.db
+backend/.env
+frontend/node_modules/
+frontend/dist/
+.vscode/
+.freebuff/

@@ -1,5 +1,7 @@
 """SQLAlchemy engine/session with automatic MySQL -> SQLite fallback."""
 import logging
+import os
+import tempfile
 from collections.abc import Generator
 
 from sqlalchemy import create_engine, text
@@ -32,7 +34,15 @@ def get_engine():
     except Exception as exc:  # noqa: BLE001 - graceful fallback keeps demo working
         logger.warning("Primary database unreachable (%s) - falling back to SQLite.", exc)
         _is_fallback = True
-        _engine = _build_engine("sqlite:///./career_assistant.db")
+        # On Vercel the working directory is read-only, so the demo SQLite file
+        # must live in /tmp (ephemeral: data resets on cold starts — set
+        # DATABASE_URL to a real MySQL for anything persistent). Locally unchanged.
+        if os.environ.get("VERCEL"):
+            _engine = _build_engine(
+                f"sqlite:///{os.path.join(tempfile.gettempdir(), 'career_assistant.db')}"
+            )
+        else:
+            _engine = _build_engine("sqlite:///./career_assistant.db")
     return _engine
 
 
